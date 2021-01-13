@@ -61,7 +61,14 @@ public class Radix{
     }
     //positive list is in order once sorted
     radixSortSimple(positiveData);
-    
+    //negative list is in opposite order once sorted
+    radixSortSimple(negativeData);
+    while (negativeData.size() != 0) {
+      data.add(negativeData.get(negativeData.size() - 1) * -1);
+      negativeData.remove(negativeData.size() - 1);
+    }
+
+    data.extend(positiveData);
 
   }
 
