@@ -36,9 +36,9 @@ public class Radix{
 
     for (int i = 0; i < maxPlace; i++) {
       //empty the buckets
-      buckets = new SortableLinkedList[10];
+      SortableLinkedList[] hold = new SortableLinkedList[10];
       for (int j = 0; j < 10; j++) {
-        buckets[i] = new SortableLinkedList();
+        hold[i] = new SortableLinkedList();
       }
       //add the terms by place value of i
       while (data.size() != 0) {
@@ -59,10 +59,12 @@ public class Radix{
       else negativeData.add(data.get(0) * -1);
       data.remove(0);
     }
+
     //positive list is in order once sorted
     radixSortSimple(positiveData);
     //negative list is in opposite order once sorted
     radixSortSimple(negativeData);
+
     while (negativeData.size() != 0) {
       data.add(negativeData.get(negativeData.size() - 1) * -1);
       negativeData.remove(negativeData.size() - 1);
