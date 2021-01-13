@@ -1,13 +1,13 @@
 public class Radix{
   public static int nth(int n, int col) {
     if (n < 0) n = n * -1;
-    int div = n / (int)Math.pow(10, col);
-    return div % 10;
+    n = n / (int)Math.pow(10, col);
+    return n % 10;
   }
 
   public static int length(int n) {
-    if (n < 0) n = n * -1;
     if (n == 0) return 1;
+    if (n < 0) n = n * -1;
     return (int) Math.log10(n) + 1;
   }
 
@@ -60,10 +60,8 @@ public class Radix{
       else negativeData.add(toRemove * -1);
     }
 
-    //positive list is in order once sorted
-    radixSortSimple(positiveData);
-    //negative list is in opposite order once sorted
     radixSortSimple(negativeData);
+    radixSortSimple(positiveData);
 
     while (negativeData.size() != 0) {
       data.add(negativeData.remove(negativeData.size() - 1) * -1);
