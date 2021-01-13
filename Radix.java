@@ -17,6 +17,26 @@ public class Radix{
     }
   }
 
-  public static void
+  public static void radixSortSimple(SortableLinkedList data) {
+    SortableLinkedList[] buckets = new SortableLinkedList();
+    for (int i = 0; i < 10; i ++) {
+      buckets[i] = new SortableLinkedList();
+    }
+
+    //least significant pass- also here calc the largest number
+    int maxPlace = 0;
+    while (data != 0) {
+      int holder = data.get(0);
+      if (length(holder) > maxPlace) maxPlace = length(holder);
+      buckets[nth(holder, 0)].add(holder);
+      data.remove(0);
+    }
+
+    merge(data, buckets);
+
+    for (int i = 0; i < maxPlace; i++) {
+      
+    }
+  }
 
 }
