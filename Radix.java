@@ -51,6 +51,32 @@ public class Radix{
 
   }
 
+  public static void radixSort(SortableLinkedList data) {
+    SortableLinkedList positiveData = new SortableLinkedList();
+    SortableLinkedList negativeData = new SortableLinkedList();
+    while (data.size() != 0) {
+      if (data.get(0) >= 0) positiveData.add(data.get(0));
+      else negativeData.add(data.get(0) * -1);
+      data.remove(0);
+    }
+    //positive list is in order once sorted
+    radixSortSimple(positiveData);
+    
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
