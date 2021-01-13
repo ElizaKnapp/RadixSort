@@ -63,7 +63,7 @@ public class Radix{
     radixSortSimple(negativeData);
     radixSortSimple(positiveData);
 
-    while (negativeData.size() != 0) {
+    while (negativeData.size() > 0) {
       data.add(negativeData.remove(negativeData.size() - 1) * -1);
     }
 
