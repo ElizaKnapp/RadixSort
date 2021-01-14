@@ -27,7 +27,7 @@ public class Radix{
     int maxPlace = 0;
     while (data.size() != 0) {
       int holder = data.get(0);
-      if (length(holder) > maxPlace) maxPlace = length(holder);
+      maxPlace = Integer.max(length(holder), maxPlace);
       buckets[nth(holder, 0)].add(holder);
       data.remove(0);
     }
