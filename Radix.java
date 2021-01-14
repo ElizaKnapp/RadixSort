@@ -35,11 +35,6 @@ public class Radix{
     merge(data, buckets);
 
     for (int i = 0; i < maxPlace; i++) {
-      //empty the buckets
-      SortableLinkedList[] hold = new SortableLinkedList[10];
-      for (int j = 0; j < 10; j++) {
-        hold[i] = new SortableLinkedList();
-      }
       //add the terms by place value of i
       while (data.size() != 0) {
         int holder = data.get(0);
