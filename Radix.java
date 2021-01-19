@@ -26,10 +26,9 @@ public class Radix{
     //least significant pass- also here calc the largest number
     int maxPlace = 0;
     while (data.size() != 0) {
-      int holder = data.get(0);
+      int holder = data.remove(0);
       maxPlace = Integer.max(length(holder), maxPlace);
       buckets[nth(holder, 0)].add(holder);
-      data.remove(0);
     }
 
     merge(data, buckets);
@@ -37,9 +36,8 @@ public class Radix{
     for (int i = 0; i < maxPlace; i++) {
       //add the terms by place value of i
       while (data.size() != 0) {
-        int holder = data.get(0);
+        int holder = data.remove(0);
         buckets[nth(holder, i)].add(holder);
-        data.remove(0);
       }
       merge(data, buckets);
     }
@@ -58,7 +56,7 @@ public class Radix{
     radixSortSimple(negativeData);
     radixSortSimple(positiveData);
 
-    while (negativeData.size() > 0) {
+    while (negativeData.size() != 0) {
       data.add(negativeData.remove(negativeData.size() - 1) * -1);
     }
 
